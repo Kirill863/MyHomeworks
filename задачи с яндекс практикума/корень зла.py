@@ -1,19 +1,25 @@
 import math
 
-a = int(input('Введите первое число'))
-b = int(input('Введите второе число'))
-c = int(input('Введите третье число'))
+a = float(input("Введите коэффициент a: "))
+b = float(input("Введите коэффициент b: "))
+c = float(input("Введите коэффициент c: "))
 
-d = b * 2 - 4 * a * c
-if d < 0:
-    print('No solution')
-elif d == 0:
-    x = -b / 2 * a
-    print(x)
-elif d > 0:
-    x_1 = (-b + math.sqrt(d)) / 2 * a
-    x_2 = (-b - math.sqrt(d)) / 2 * a
-    if x_1 > x_2:
-        print(x_2, x_1)
-    elif x_1 < x_2:
-        print(x_1, x_2)
+# Проверка на тривиальный случай
+if a == 0 and b == 0 and c == 0:
+    print("Infinite solutions")
+else:
+    discriminant = b**2 - 4 * a * c
+
+    if discriminant < 0:
+        print("No solution")
+    elif discriminant == 0:
+        x = -b / (2 * a)
+        print("{:.2f}".format(x))
+    else:
+        x_1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        x_2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        # Сортировка корней в порядке возрастания
+        if x_1 < x_2:
+            print("{:.2f} {:.2f}".format(x_1, x_2))
+        else:
+            print("{:.2f} {:.2f}".format(x_2, x_1))
