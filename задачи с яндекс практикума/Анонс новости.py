@@ -1,13 +1,13 @@
-
 L = int(input())
 N = int(input())
 zagolovki = []
-for _ in range(N):
-    zagolovk = input()
-    zagolovki.append(zagolovk)
 
-for zagolovk in zagolovki:
-    if len(zagolovk) > L:
-        zagolovk = zagolovk[:L-3] + "..."
-    print(zagolovk)
+for _ in range(N):
+    zagolovok = input()
+    zagolovki.append(zagolovok)
+
+for zagolovok in zagolovki:
+    if len(zagolovok) > L:
+        zagolovok = zagolovok[:L - 3] + "..."
+    print(zagolovok)
 
