@@ -10,20 +10,22 @@
 Формат вывода
 Очищенные данные."""
 
-def clean_logs():
-    cleaned_lines = []
-    while True:
-        line = input()
-        if line == "":
-            break
-        if line.endswith("@@@"):
-            continue
-        if line.startswith("##"):
-            line = line[2:]
-        cleaned_lines.append(line)
-    return cleaned_lines
+stroki = []
 
-# Пример использования функции
-cleaned_logs = clean_logs()
-for log in cleaned_logs:
-    print(log)
+while True:
+    stroka = input()
+    if stroka == "":
+        break
+    stroki.append(stroka)
+
+# Удаляем символы ## в начале каждой строки
+for i in range(len(stroki)):
+    if stroki[i].startswith("##"):
+        stroki[i] = stroki[i][2:]
+
+# Удаляем строки, которые заканчиваются на @@@
+stroki = [stroka for stroka in stroki if not stroka.endswith("@@@")]
+
+# Выводим обновленный список строк
+for stroka in stroki:
+    print(stroka)
